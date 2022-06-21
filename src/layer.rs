@@ -76,7 +76,7 @@ where
 
             fields["name"] = serde_json::json!(name);
 
-            map.serialize_entry("jsonPayload", &fields)?;
+            map.serialize_entry("logging.googleapis.com/labels", &fields)?;
         }
 
         // TODO: enable deeper structuring of keys and values across tracing
