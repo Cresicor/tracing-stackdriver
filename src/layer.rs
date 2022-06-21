@@ -60,7 +60,7 @@ where
 
         let mut map = serializer.serialize_map(None)?;
 
-        map.serialize_entry("time", &self.time.to_rfc3339())?;
+        map.serialize_entry("timestamp", &self.time.to_rfc3339())?;
         map.serialize_entry("severity", &meta.level().as_serde())?;
         map.serialize_entry("target", &meta.target())?;
 
@@ -76,7 +76,7 @@ where
 
             fields["name"] = serde_json::json!(name);
 
-            map.serialize_entry("span", &fields)?;
+            map.serialize_entry("jsonPayload", &fields)?;
         }
 
         // TODO: enable deeper structuring of keys and values across tracing
